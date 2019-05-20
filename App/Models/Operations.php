@@ -13,7 +13,7 @@ class Operations
     public $result;
 
 
-    public function __construct(int $first_number, int $second_number, string $operation)
+    public function __construct(float $first_number, float $second_number, string $operation)
     {
         $this->first_number = $first_number;
         $this->second_number = $second_number;
@@ -31,7 +31,7 @@ class Operations
                 $this->result = $this->multiply();
                 break;
             case '/':
-                $this->result = $this->devide();
+                $this->result = $this->divide();
                 break;
         }
     }
@@ -41,29 +41,29 @@ class Operations
        return $this->result;
     }
 
-    public function add(): int
+    public function add(): float
     {
-        return $this->first_number + $this->second_number;
+        return round($this->first_number + $this->second_number,2);
     }
 
 
-    public function subtract(): int
+    public function subtract(): float
     {
-        return $this->first_number - $this->second_number;
+        return round($this->first_number - $this->second_number,2);
     }
 
 
-    public function multiply(): int
+    public function multiply(): float
     {
-        return $this->first_number * $this->second_number;
+        return round($this->first_number * $this->second_number,2);
     }
 
 
-    public function devide(): int
+    public function divide(): float
     {
         if ($this->second_number != 0)
         {
-            return $this->first_number * $this->second_number;
+            return round($this->first_number / $this->second_number,2);
         }
         throw new \Exception('Can not divide by zero');
     }

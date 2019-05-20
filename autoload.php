@@ -1,5 +1,9 @@
 <?php
+
+
 require_once('config.php');
+
+
 function autoload($className)
 {
     $classNameWithNamespaceArray = explode('\\', $className);
@@ -8,6 +12,7 @@ function autoload($className)
         check_and_include(ROOT . DS . $path . DS . $classFile);
     }
 }
+
 function check_and_include(string $file_path)
 {
     if (file_exists($file_path)) {
@@ -15,4 +20,5 @@ function check_and_include(string $file_path)
     }
     return;
 }
+
 spl_autoload_register('autoload');

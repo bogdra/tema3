@@ -11,10 +11,10 @@ define('VIEWS_PATH', ROOT . DS . 'App' . DS . 'Views');
 
 //define the PATHS array to include in the autoload
 define('PATHS', [
-        'core',
-        'app',
-        'app' . DS . 'controllers',
-        'app' . DS . 'models',
-        'app' . DS . 'views',
+        'Core',
+        'App',
+        'App' . DS . 'Controllers',
+        'App' . DS . 'Models',
+        'App' . DS . 'Views',
     ]
 );
