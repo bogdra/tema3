@@ -20,13 +20,18 @@ class Controller
 
     private function set_params()
     {
-        //TODO: sanitize the params
-        $this->params['first_number'] = (float)Validate::clean($_REQUEST['first_number']);
-        $this->params['second_number'] = (float)Validate::clean($_REQUEST['second_number']);
+       if (!empty($_REQUEST))
+       {
+            $this->params['first_number'] = (float)Validate::clean($_REQUEST['first_number']);
+            $this->params['second_number'] = (float)Validate::clean($_REQUEST['second_number']);
 
-        if (Validate::is_permitted_operation($_REQUEST['operation'])) {
-            $this->params['operation'] = (string)$_REQUEST['operation'];
-        }
+            if (Validate::is_permitted_operation($_REQUEST['operation'])) {
+                $this->params['operation'] = (string)$_REQUEST['operation'];
+            }
+       } else {
+            $this->params = [];
+       }
+        
 
     }
 
